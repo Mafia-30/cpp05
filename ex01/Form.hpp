@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/16 05:03:30 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/17 06:02:24 by ymafaman         ###   ########.fr       */
+/*   Created: 2024/08/17 01:50:15 by ymafaman          #+#    #+#             */
+/*   Updated: 2024/08/17 05:45:52 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+# define FORM_HPP
 
-#include <exception>
-#include <stdexcept>
 #include <string>
 #include <iostream>
+#include <sstream>
+#include <fstream>
+#include "Bureaucrat.hpp"
 
-class Bureaucrat {
+class Bureaucrat;
+
+class Form{
 
 public :
 
-	// Bureaucrat Creation Exceptions
+	// Form Exceptions
 
 	class GradeTooHighException : public std::invalid_argument
 	{
@@ -36,38 +39,48 @@ public :
 			GradeTooLowException( std::string message );
 	};
 
+	class GradeOutOfRange : public std::invalid_argument
+	{
+		public :
+			GradeOutOfRange( std::string message );
+	};
+
 	// Constructors
 
-	Bureaucrat( std::string name, int grade );
-	Bureaucrat( const Bureaucrat& ref );
+	Form( std::string name, int sign_grade, int exec_grade );
+	Form( const Form& ref );
 
 	// Destructor
 
-	~Bureaucrat();
+	~Form();
 
-	// Copy assignment operator overload
+	// Copy assignment operator
 
-	Bureaucrat &operator = ( const Bureaucrat& rhs );
+	Form &operator = ( const Form& rhs );
 
-	// Getters
+	// Form methods
 
-	std::string	getName( void ) const;
-	int			getGrade( void ) const;
+	std::string	getName( void );
+	int			getSignGrade( void );
+	int			getExecuteGrade( void );
+	bool		isSigned( void );
 
-	// Public member methods
+	void	beSigned( const Bureaucrat& B );
 
-	void	upGrade( void );
-	void	downGrade( void );
 
 private :
 
-	int 				grade;	
 	const std::string	name;
-
-	static int	validateGrade( int grade );
+	bool				is_signed;
+	const int			req_sign_grade;
+	const int			req_execute_grade;
+	
+	std::string	get_reason( const Bureaucrat& B );
+	int			validate_grade( int grade );
 	
 };
 
-std::ostream &operator << ( std::ostream& stream, const Bureaucrat& b );
+
+
 
 #endif

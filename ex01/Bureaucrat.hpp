@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 05:03:30 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/17 06:02:24 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/08/17 05:55:19 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 #include <stdexcept>
 #include <string>
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
 
@@ -58,6 +61,8 @@ public :
 
 	void	upGrade( void );
 	void	downGrade( void );
+	
+	void	signForm( Form& form );
 
 private :
 

@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 05:25:56 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/17 06:03:06 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/08/17 06:03:51 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,17 @@ std::ostream &operator << ( std::ostream& stream, const Bureaucrat& b )
 {
 	std::cout << "Bureaucrat's " << b.getName() << " grade is : " << b.getGrade();
 	return (stream);
+}
+
+void	Bureaucrat::signForm( Form& form )
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << "Bureaucrat: " << this->name << " signed the form: " << form.getName() << std::endl;
+	}
+	catch ( const std::exception& e )
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
