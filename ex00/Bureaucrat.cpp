@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 05:25:56 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/17 01:02:23 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/08/17 01:25:28 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Bureaucrat::Bureaucrat( const Bureaucrat& ref ) : grade(ref.grade), name(ref.nam
 	std::cout << "Bureaucrat " << this->name << " has been created successfully!" << std::endl;
 }
 
-Bureaucrat& Bureaucrat::operator=( const Bureaucrat& rhs )
+Bureaucrat &Bureaucrat::operator = ( const Bureaucrat& rhs )
 {
 	if (this == &rhs)
 	{
@@ -89,4 +89,10 @@ int	Bureaucrat::validateGrade( int grade )
 		throw Bureaucrat::GradeTooLowException;
 
 	return (grade);
+}
+
+std::ostream &operator << ( std::ostream& stream, const Bureaucrat& b )
+{
+	std::cout << "Bureaucrat's " << b.getName() << " grade is : " << b.getGrade();
+	return (stream);
 }

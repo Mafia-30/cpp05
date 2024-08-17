@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 00:58:49 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/17 01:11:13 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/08/17 01:24:25 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@ int main()
 	try
 	{
 		Bureaucrat B1("B1", 150);
-		B1.downGrade();
+
 		B1.upGrade();
+		B1.downGrade();
+
+		std::cout << B1 << std::endl;
 	}
 	catch(const std::exception& e)
 	{
