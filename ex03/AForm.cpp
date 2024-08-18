@@ -1,0 +1,119 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/17 08:20:25 by ymafaman          #+#    #+#             */
+/*   Updated: 2024/08/17 11:09:48 by ymafaman         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "AForm.hpp"
+
+// AForm Exceptions constructors
+
+AForm::GradeTooHighException::GradeTooHighException( std::string message ) : invalid_argument(message) {}
+
+AForm::GradeTooLowException::GradeTooLowException( std::string message ) : invalid_argument(message) {}
+
+AForm::GradeOutOfRange::GradeOutOfRange( std::string message ) : invalid_argument(message) {}
+
+
+// AForm constructors
+
+AForm::AForm( std::string name, int sign_grade, int exec_grade, std::string target )
+	try
+	: name(name), is_signed(false), req_sign_grade(validate_grade(sign_grade)), req_execute_grade(validate_grade(exec_grade)), target(target)
+	{
+		std::cout << "AForm: " << name << " has been created successfully!" << std::endl;
+	}
+	catch ( const std::exception& e )
+	{
+		throw ;
+	}
+
+AForm::AForm( const AForm& ref )
+	: name(ref.name), is_signed(ref.is_signed), req_sign_grade(ref.req_execute_grade), req_execute_grade(ref.req_execute_grade), target(ref.target) {}
+
+
+// AForm copy assignment operator overload
+
+AForm &AForm::operator = ( const AForm& rhs )
+{
+	if (this == &rhs)
+	{
+		return (*this);
+	}
+
+	this->is_signed = rhs.is_signed;
+	this->target = rhs.target;
+	return (*this);
+}
+
+
+// AForm destructor
+
+AForm::~AForm()
+{
+	std::cout << "AForm destroyed." << std::endl;
+}
+
+
+// AForm methods
+
+void	AForm::beSigned( const Bureaucrat& B )
+{
+	if (this->is_signed)
+	{
+		std::cout << "AForm already signed!" << std::endl;
+		return;
+	}
+
+	if (B.getGrade() > this->req_sign_grade)
+		throw AForm::GradeTooLowException(get_reason(B));
+
+	this->is_signed = true;
+}
+
+std::string	AForm::get_reason( const Bureaucrat& B )
+{
+	std::ostringstream strm;
+
+	strm << "Bureaucrat: " << B.getName() << " couldn’t sign " << this->name << " because grade " << B.getGrade() << " is lower than grade " << this->req_sign_grade << ".";
+
+	return (strm.str()); 
+}
+
+std::string	AForm::getName( void ) const
+{
+	return (this->name);
+}
+
+std::string AForm::getTarget( void ) const
+{
+	return (this->target);
+}
+
+int	AForm::getSignGrade( void ) const
+{
+	return (this->req_sign_grade);
+}
+
+int	AForm::getExecuteGrade( void ) const
+{
+	return (this->req_execute_grade);
+}
+
+bool AForm::isSigned( void ) const
+{
+	return (this->is_signed);
+}
+
+int	AForm::validate_grade( int grade )
+{
+	if (grade < 1 || grade > 150)
+		throw AForm::GradeOutOfRange("AForm construction error! Reason: A grade can only be within the range of 1 - 150!");
+	return (grade);
+}

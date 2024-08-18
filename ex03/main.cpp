@@ -6,32 +6,32 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 00:58:49 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/17 22:52:53 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/08/18 02:30:10 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
-	try {
-		Bureaucrat B2(Bureaucrat("B1", 151));
+	try
+	{
+		Bureaucrat B1("B1", 1);
+		Intern I1;
+		AForm* F1 = I1.makeForm("robotomy request", "Target");
+		
+		B1.signForm(*F1);
+		B1.executeForm(*F1);
+		delete F1;
 	}
-	catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
 	}
-	// try
-	// {
-	// 	Bureaucrat B1("B1", 150);
 
-	// 	B1.upGrade();
-	// 	B1.downGrade();
-
-	// 	std::cout << B1 << std::endl;
-	// }
-	// catch(const std::exception& e)
-	// {
-	// 	std::cerr << e.what() << '\n';
-	// }
-	
 }
