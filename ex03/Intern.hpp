@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 00:28:02 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/18 02:31:01 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/08/18 02:42:35 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include <stdexcept>
+#include <exception>
 
 class Intern{
 
@@ -33,9 +35,6 @@ private :
 	int		MatchesShrubberyCreation( std::string name );
 	int		MatchesPresidentialPardon( std::string name );
 
-	AForm	*CreateNewRobotomyRequest( std::string name, std::string target );
-	AForm	*CreateNewShrubberyCreation( std::string name, std::string target );
-	AForm	*CreateNewPresidentialPardon( std::string name, std::string target );
 };
 
 

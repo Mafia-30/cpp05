@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 00:58:49 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/18 02:30:10 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/08/18 02:43:40 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main()
 	{
 		Bureaucrat B1("B1", 1);
 		Intern I1;
-		AForm* F1 = I1.makeForm("robotomy request", "Target");
+		AForm* F1 = I1.makeForm("robotodmy request", "Target");
 		
 		B1.signForm(*F1);
 		B1.executeForm(*F1);
