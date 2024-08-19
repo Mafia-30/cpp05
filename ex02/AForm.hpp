@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 08:19:55 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/17 22:57:59 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/08/19 00:40:00 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ private :
 	
 };
 
-
+std::ostream &operator << ( std::ostream& stream, const AForm& f );
 
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 01:50:15 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/17 05:45:52 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/08/19 00:33:24 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ public :
 
 	// Form methods
 
-	std::string	getName( void );
-	int			getSignGrade( void );
-	int			getExecuteGrade( void );
-	bool		isSigned( void );
+	std::string	getName( void ) const;
+	int			getSignGrade( void ) const;
+	int			getExecuteGrade( void ) const;
+	bool		isSigned( void ) const;
 
 	void	beSigned( const Bureaucrat& B );
 
@@ -80,6 +80,7 @@ private :
 	
 };
 
+std::ostream &operator << ( std::ostream& stream, const Form& f );
 
 
 

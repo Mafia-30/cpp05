@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 03:50:28 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/17 05:53:17 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/08/19 00:37:20 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,22 +85,22 @@ std::string	Form::get_reason( const Bureaucrat& B )
 	return (strm.str()); 
 }
 
-std::string	Form::getName( void )
+std::string	Form::getName( void ) const
 {
 	return (this->name);
 }
 
-int	Form::getSignGrade( void )
+int	Form::getSignGrade( void ) const
 {
 	return (this->req_sign_grade);
 }
 
-int	Form::getExecuteGrade( void )
+int	Form::getExecuteGrade( void ) const
 {
 	return (this->req_execute_grade);
 }
 
-bool Form::isSigned( void )
+bool Form::isSigned( void ) const
 {
 	return (this->is_signed);
 }
@@ -110,4 +110,13 @@ int	Form::validate_grade( int grade )
 	if (grade < 1 || grade > 150)
 		throw Form::GradeOutOfRange("Form construction error! Reason: A grade can only be within the range of 1 - 150!");
 	return (grade);
+}
+
+std::ostream &operator << ( std::ostream& stream, const Form& f )
+{
+	if (f.isSigned())
+		stream << "Form " << f.getName() << " is already signed and requires a minimum grade of " << f.getExecuteGrade() << " to be executed.";
+	else
+		stream << "Form " << f.getName() << " is not yet signed and requires a minimum grade of " << f.getSignGrade() << " to be signed and a minimum grade of " << f.getSignGrade() << " to be signed.";
+	return (stream);
 }

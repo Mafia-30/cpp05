@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 08:20:25 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/17 11:09:48 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/08/19 00:39:14 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,4 +116,14 @@ int	AForm::validate_grade( int grade )
 	if (grade < 1 || grade > 150)
 		throw AForm::GradeOutOfRange("AForm construction error! Reason: A grade can only be within the range of 1 - 150!");
 	return (grade);
+}
+
+
+std::ostream &operator << ( std::ostream& stream, const AForm& f )
+{
+	if (f.isSigned())
+		stream << "Form " << f.getName() << " is already signed and requires a minimum grade of " << f.getExecuteGrade() << " to be executed.";
+	else
+		stream << "Form " << f.getName() << " is not yet signed and requires a minimum grade of " << f.getSignGrade() << " to be signed and a minimum grade of " << f.getSignGrade() << " to be signed.";
+	return (stream);
 }

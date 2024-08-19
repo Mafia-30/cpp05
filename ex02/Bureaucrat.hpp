@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 05:03:30 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/17 10:35:15 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/08/19 01:28:28 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define BUREAUCRAT_HPP
 
 #include <exception>
-#include <stdexcept>
+#include <stdexcept> 
 #include <string>
 #include <iostream>
 #include "AForm.hpp"

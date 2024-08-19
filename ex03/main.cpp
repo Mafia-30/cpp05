@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 00:58:49 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/18 02:43:40 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/08/19 02:04:50 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ int main()
 		
 		B1.signForm(*F1);
 		B1.executeForm(*F1);
+
+			Bureaucrat B1("B1", 0);
+		
+		
 		delete F1;
 	}
 	catch(const std::exception& e)

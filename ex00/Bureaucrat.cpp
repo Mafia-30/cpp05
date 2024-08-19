@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 05:25:56 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/17 06:03:06 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/08/19 00:40:18 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,6 @@ int	Bureaucrat::validateGrade( int grade )
 
 std::ostream &operator << ( std::ostream& stream, const Bureaucrat& b )
 {
-	std::cout << "Bureaucrat's " << b.getName() << " grade is : " << b.getGrade();
+	stream << "Bureaucrat's " << b.getName() << " grade is : " << b.getGrade();
 	return (stream);
 }
