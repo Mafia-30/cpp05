@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 00:58:49 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/17 11:27:07 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/09/20 15:26:48 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ int main()
 	{
 		Bureaucrat B1("B1", 1);
 
-		RobotomyRequestForm F1("R1", "targ");
+		RobotomyRequestForm F1("targ");
 		
 		B1.signForm(F1);
+
+		std::cout << std::endl << std::endl;
+		
 		B1.executeForm(F1);
 	}
 	catch(const std::exception& e)
@@ -33,4 +36,45 @@ int main()
 		std::cerr << e.what() << '\n';
 	}
 
+	std::cout << std::endl;
+	std::cout << "/* ------------------ */ "<< std::endl;
+	std::cout << std::endl;
+	
+	try
+	{
+		Bureaucrat B1("B1", 1);
+
+		ShrubberyCreationForm F1("targ");
+		
+		B1.signForm(F1);
+
+		std::cout << std::endl << std::endl;
+		
+		B1.executeForm(F1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
+	std::cout << std::endl;
+	std::cout << "/* ------------------ */ "<< std::endl;
+	std::cout << std::endl;
+	
+	try
+	{
+		Bureaucrat B1("B1", 1);
+
+		PresidentialPardonForm F1("targ");
+		
+		B1.signForm(F1);
+
+		std::cout << std::endl << std::endl;
+		
+		B1.executeForm(F1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 03:50:28 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/19 00:37:20 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/09/20 14:51:14 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,11 @@ Form::GradeTooHighException::GradeTooHighException( std::string message ) : inva
 
 Form::GradeTooLowException::GradeTooLowException( std::string message ) : invalid_argument(message) {}
 
-Form::GradeOutOfRange::GradeOutOfRange( std::string message ) : invalid_argument(message) {}
-
-
 // Form constructors
 
 Form::Form( std::string name, int sign_grade, int exec_grade )
 	try
-	: name(name), is_signed(false), req_sign_grade(validate_grade(sign_grade)), req_execute_grade(validate_grade(exec_grade))
+	: name(name), is_signed(false), req_sign_grade(Form::validate_grade(sign_grade)), req_execute_grade(Form::validate_grade(exec_grade))
 	{
 		std::cout << "Form: " << name << " has been created successfully!" << std::endl;
 	}
@@ -35,7 +32,10 @@ Form::Form( std::string name, int sign_grade, int exec_grade )
 	}
 
 Form::Form( const Form& ref )
-	: name(ref.name), is_signed(ref.is_signed), req_sign_grade(ref.req_execute_grade), req_execute_grade(ref.req_execute_grade) {}
+	: name(ref.name), is_signed(ref.is_signed), req_sign_grade(ref.req_execute_grade), req_execute_grade(ref.req_execute_grade)
+{
+	std::cout << "Form: " << name << " has been created successfully!" << std::endl;
+}
 
 
 // Form copy assignment operator overload
@@ -76,11 +76,11 @@ void	Form::beSigned( const Bureaucrat& B )
 	this->is_signed = true;
 }
 
-std::string	Form::get_reason( const Bureaucrat& B )
+std::string	Form::get_reason( const Bureaucrat& B ) const
 {
 	std::ostringstream strm;
 
-	strm << "Bureaucrat: " << B.getName() << " couldn’t sign " << this->name << " because grade " << B.getGrade() << " is lower than grade " << this->req_sign_grade << ".";
+	strm << "Bureaucrat: " << B.getName() << " couldn’t sign " << this->name << " because grade " << B.getGrade() << " is lower than the required grade " << this->req_sign_grade << ".";
 
 	return (strm.str()); 
 }
@@ -107,8 +107,12 @@ bool Form::isSigned( void ) const
 
 int	Form::validate_grade( int grade )
 {
-	if (grade < 1 || grade > 150)
-		throw Form::GradeOutOfRange("Form construction error! Reason: A grade can only be within the range of 1 - 150!");
+	if (grade < 1)
+		throw Form::GradeTooHighException("Form construction error! Reason: A grade cannot be higher than 1!");
+
+	if (grade > 150)
+		throw Form::GradeTooLowException("Form construction error! Reason: A grade cannot be lower than 150!");
+
 	return (grade);
 }
 

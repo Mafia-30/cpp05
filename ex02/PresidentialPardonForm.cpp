@@ -6,13 +6,13 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 10:27:01 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/17 10:33:39 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/09/20 15:15:51 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm( std::string name, std::string target ) : AForm(name, 25, 5, target)
+PresidentialPardonForm::PresidentialPardonForm( std::string target ) : AForm("PresidentialPardonForm", 25, 5, target)
 {
 
 }

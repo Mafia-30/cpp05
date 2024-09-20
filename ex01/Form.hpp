@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 01:50:15 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/19 00:33:24 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/09/20 14:51:09 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,6 @@ public :
 			GradeTooLowException( std::string message );
 	};
 
-	class GradeOutOfRange : public std::invalid_argument
-	{
-		public :
-			GradeOutOfRange( std::string message );
-	};
-
 	// Constructors
 
 	Form( std::string name, int sign_grade, int exec_grade );
@@ -75,8 +69,8 @@ private :
 	const int			req_sign_grade;
 	const int			req_execute_grade;
 	
-	std::string	get_reason( const Bureaucrat& B );
-	int			validate_grade( int grade );
+	std::string	get_reason( const Bureaucrat& B ) const;
+	static int	validate_grade( int grade );
 	
 };
 

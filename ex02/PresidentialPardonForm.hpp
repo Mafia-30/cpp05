@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 10:24:10 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/17 10:26:42 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/09/20 15:15:42 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class PresidentialPardonForm : public AForm
 
 public :
 
-	PresidentialPardonForm( std::string name, std::string target );
+	PresidentialPardonForm( std::string target );
 	PresidentialPardonForm( const PresidentialPardonForm& ref );
 	
 	~PresidentialPardonForm();

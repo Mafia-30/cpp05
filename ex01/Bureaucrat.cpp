@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 05:25:56 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/19 00:36:18 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/09/20 14:30:26 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 Bureaucrat::GradeTooHighException::GradeTooHighException( std::string message ) : invalid_argument(message) {}
 
 Bureaucrat::GradeTooLowException::GradeTooLowException( std::string message ) : invalid_argument(message) {}
+
+// Bureaucrat Constructors
 
 Bureaucrat::Bureaucrat( std::string name, int grade )
 	try
@@ -64,7 +66,7 @@ int	Bureaucrat::getGrade( void ) const
 
 void	Bureaucrat::upGrade( void )
 {
-	if (this->grade - 1 <= 0)
+	if (this->grade - 1 < 1)
 		throw Bureaucrat::GradeTooHighException("Upgrading failure! Grade is already to high.");
 
 	this->grade--;
@@ -107,6 +109,6 @@ void	Bureaucrat::signForm( Form& form )
 	}
 	catch ( const std::exception& e )
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 }

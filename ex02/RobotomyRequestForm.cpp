@@ -6,13 +6,13 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 09:06:17 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/17 11:18:12 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/09/20 15:14:14 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm( std::string name, std::string target ) : AForm(name, 72, 45, target)
+RobotomyRequestForm::RobotomyRequestForm( std::string target ) : AForm("RobotomyRequestForm", 72, 45, target)
 {
 
 }

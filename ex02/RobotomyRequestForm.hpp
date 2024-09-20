@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 09:01:19 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/08/17 10:18:41 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/09/20 15:13:32 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class RobotomyRequestForm : public AForm
 
 public :
 
-	RobotomyRequestForm( std::string name, std::string target );
+	RobotomyRequestForm( std::string target );
 	RobotomyRequestForm( const RobotomyRequestForm& ref );
 
 	~RobotomyRequestForm();
