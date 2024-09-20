@@ -6,7 +6,7 @@
 /*   By: ymafaman <ymafaman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 00:30:45 by ymafaman          #+#    #+#             */
-/*   Updated: 2024/09/20 15:43:15 by ymafaman         ###   ########.fr       */
+/*   Updated: 2024/09/20 22:37:49 by ymafaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 
 Intern::Intern( void ) {}
 
-Intern::Intern( const Intern& ref ) {}
+Intern::Intern( const Intern& ref )
+{
+	(void)ref;
+}
 
 Intern::~Intern() {}
 
 Intern&	Intern::operator=( const Intern& rhs )
 {
+	(void)rhs;
 	return *this;
 }
 
@@ -51,7 +55,7 @@ AForm	*Intern::makeForm( std::string name, std::string target )
 	{
 	case 1:
 		std::cout << "Intern creates RobotomyRequestForm" << std::endl;
-		return (new RobotomyRequestForm(name, target)); // this has to be a try catch thing
+		return (new RobotomyRequestForm(name, target));
 	case 2:
 		std::cout << "Intern creates ShrubberyCreationForm" << std::endl;
 		return (new ShrubberyCreationForm(name, target));
